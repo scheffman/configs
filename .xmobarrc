@@ -28,7 +28,7 @@ Config { font = "xft:Fixed-8"
         ,"-l"   ,"#15FF00"
         ,"-n"   ,"#FF6600"
         ,"-h"   ,"#FF0000"] 10
-    , Run Network "eno1" ["-t","eno1: rx: <rx> tx: <tx>" --edit "eno1" to you network card. Or use DynNetwork
+    , Run Network "eno1" ["-t","eno1: rx: <rx> tx: <tx>"
         ,"-L"   ,"5000000"
         ,"-H"   ,"10000000"
         ,"-l"   ,"#15FF00"
@@ -43,7 +43,7 @@ Config { font = "xft:Fixed-8"
         ,"-l"   ,"#15FF00"
         ,"-n"   ,"#FF6600"
         ,"-h"   ,"#FF0000"] 60
-    , Run Battery ["-t","Batt: <acstatus>" --remove from template if not using battery
+    , Run Battery ["-t","Batt: <acstatus>"
         ,"-L"   ,"10"
         ,"-H"   ,"70"
         ,"-l"   ,"#FF0000"
