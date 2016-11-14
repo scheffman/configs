@@ -4,59 +4,58 @@ Config { font = "xft:Fixed-8"
     , position = Static { xpos = 0, ypos = 0, width = 1920, height = 16 }
     , lowerOnStart = True
     commands = [ Run MultiCpu ["-t","CPU: <total0>% <total1>% <total2>% <total3>%"
-        ,"-L"   ,"30"
-        ,"-H"   ,"60"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"
-        ,"-w"   ,"3"] 10
-    , Run CoreTemp ["-t","Temp: <core1>°C <core2>°C"
-        ,"-L"   ,"60"
-        ,"-H"   ,"80"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"] 50
-    , Run Memory ["-t","Mem: <usedratio>%"
-        ,"-L"   ,"25"
-        ,"-H"   ,"75"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"] 10
-    , Run Swap ["-t","Swap: <usedratio>%"
-        ,"-L"   ,"25"
-        ,"-H"   ,"75"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"] 10
-    , Run Network "eno1" ["-t","eno1: rx: <rx> tx: <tx>"
-        ,"-L"   ,"5000000"
-        ,"-H"   ,"10000000"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"
-        ,"-S"   ,"true"] 10
-    , Run DiskU [("/","/: <usedp>%")
-        ,("/home","/home: <usedp>%")
-        ,("/boot","/boot: <usedp>%")] [
-        ,"-L"   ,"50"
-        ,"-H"   ,"75"
-        ,"-l"   ,"#15FF00"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#FF0000"] 60
-    , Run Battery ["-t","Batt: <acstatus>"
-        ,"-L"   ,"10"
-        ,"-H"   ,"70"
-        ,"-l"   ,"#FF0000"
-        ,"-n"   ,"#FF6600"
-        ,"-h"   ,"#15FF00"
-        ,"--"
-        ,"-o"   ,"<left>% (<timeleft>)"
-        ,"-O"   ,"<fc=#FF6600>Charging</fc>"
-        ,"-i"   ,"<fc=#15FF00>Charged</fc>"] 50
-    , Run StdinReader
-    , Run Date "%a %b %_d %T" "date" 10
+            ,"-L"   ,"40"
+            ,"-H"   ,"80"
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"
+            ,"-w"   ,"3"] 10
+        , Run CoreTemp ["-t","Temp: <core0>°C <core1>°C <core2>°C <core3>°C"
+            ,"-L"   ,"60"
+            ,"-H"   ,"80"
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"] 50
+        , Run Memory ["-t","Mem: <usedratio>%"
+            ,"-L"   ,"25"
+            ,"-H"   ,"75"
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"] 10
+        , Run Swap ["-t","Swap: <usedratio>%"
+            ,"-L"   ,"25"
+            ,"-H"   ,"75"
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"] 10
+        , Run Network "eno1" ["-t","eno1: rx: <rx> tx: <tx>"
+            ,"-L"   ,"5000000" --5 MB/s
+            ,"-H"   ,"10000000" --10 MB/s
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"
+            ,"-S"   ,"true"] 10
+        , Run DiskU [("/","/: <usedp>%")
+            ,("/home","/home: <usedp>%")]
+            ["-L"   ,"50"
+            ,"-H"   ,"75"
+            ,"-l"   ,"#15FF00"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#FF0000"] 60
+        , Run Battery ["-t","Batt: <acstatus>"
+            ,"-L"   ,"10"
+            ,"-H"   ,"70"
+            ,"-l"   ,"#FF0000"
+            ,"-n"   ,"#FF6600"
+            ,"-h"   ,"#15FF00"
+            ,"--"
+            ,"-o"   ,"<left>% (<timeleft>)"
+            ,"-O"   ,"<fc=#FF6600>Charging</fc>"
+            ,"-i"   ,"<fc=#15FF00>Charged</fc>"] 50
+        , Run StdinReader
+        , Run Date "%a %b %_d %T" "date" 10
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %eno1% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %battery% | <fc=#0077FF>%date%</fc>"
+    , template = "%StdinReader% }{ %eno1% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | %battery% | <fc=#FFFFFF>%date%</fc>"
 }
