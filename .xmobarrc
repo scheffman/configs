@@ -34,10 +34,18 @@ Config { font = "xft:Fixed-8"
 		,"-n"	,"#15FF00"
 		,"-h"	,"#FF0000"
 		,"-S"	,"true"] 10
+	, Run DiskU [("/","/: <usedp>")
+		,("/home","/home: <usedp>")
+		,("/boot","/boot: <usedp>")] [
+		"-L"	,"50"
+		,"-H"	,"75"
+		,"-l"	,"#15FF00"
+		,"-n"	,"#FF6600"
+		,"-h"	,"#FF0000"] 60
         , Run StdinReader
         , Run Date "%a %b %_d %T" "date" 10
     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %eno1% | %multicpu% | %coretemp% | %memory% | %swap% | <fc=#FFFFCC>%date%</fc>"
+    , template = "%StdinReader% }{ %eno1% | %multicpu% | %coretemp% | %memory% | %swap% | %disku% | <fc=#FFFFCC>%date%</fc>"
 }
