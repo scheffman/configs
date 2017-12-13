@@ -2,7 +2,7 @@ import XMonad
 import qualified XMonad.StackSet as W
 import qualified XMonad.Layout.IndependentScreens as LIS
 import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageDocks (manageDocks, docks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.Fullscreen
@@ -34,7 +34,7 @@ myManageHook = composeAll
 
 main = do
 xmproc <- spawnPipe "/usr/bin/xmobar /home/scheffman/.xmobarrc"
-xmonad $ defaultConfig
+xmonad $ docks defaultConfig
     { manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig <+> fullscreenManageHook
     , handleEventHook   = fullscreenEventHook
     , layoutHook        = spacing 3 $ myLayout
