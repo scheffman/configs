@@ -13,7 +13,7 @@ Config { font = "xft:Fixed-8"
             ,"-n"   ,"#FF6600"
             ,"-h"   ,"#FF0000"
             ,"-w"   ,"3"] 10
-        , Run CoreTemp ["-t","Temp: <core0>°C <core1>°C <core2>°C <core3>°C"
+        , Run CoreTemp ["-t","Tot: <core0>°C Temp: <core1>°C <core2>°C"
             ,"-L"   ,"60"
             ,"-H"   ,"80"
             ,"-l"   ,"#15FF00"
